@@ -9,9 +9,9 @@ import frc.robot.subsystems.Intake;
  * ^&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp| <br>
  * |_____________________________| <br>
  */
-public class ToggleIntakeStates extends CommandBase {
+public class ToggleIntakeState extends CommandBase {
     private final Intake intake;
-    public ToggleIntakeStates(Intake intake){
+    public ToggleIntakeState(Intake intake){
         this.intake = intake;
         addRequirements(intake);
     }

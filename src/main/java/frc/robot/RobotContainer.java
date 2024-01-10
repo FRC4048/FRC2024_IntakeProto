@@ -7,7 +7,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.commands.ToggleIntakeStates;
+import frc.robot.commands.ToggleIntakeState;
 import frc.robot.subsystems.Intake;
 import frc.robot.utils.Constants;
 
@@ -19,7 +19,7 @@ public class RobotContainer {
         configureBindings();
     }
     private void configureBindings() {
-        controller.button(XboxController.Button.kA.value).onTrue(new ToggleIntakeStates(intake));
+        controller.button(XboxController.Button.kA.value).onTrue(new ToggleIntakeState(intake));
     }
 
 }
