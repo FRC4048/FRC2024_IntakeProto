@@ -1,17 +1,17 @@
 package frc.robot.subsystems;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.motorcontrol.PWMTalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.utils.Constants;
-import frc.robot.utils.IntakeState;
+import frc.robot.utils.IntakeState; 
 
 public class Intake extends SubsystemBase {
-    private final WPI_TalonSRX talonSRX1;
-    private final WPI_TalonSRX talonSRX2;
+    private final PWMTalonSRX talonSRX1;
+    private final PWMTalonSRX talonSRX2;
     private IntakeState currentState = IntakeState.STOPPED;
 
     public Intake(){
-        this.talonSRX1 = new WPI_TalonSRX(Constants.INTAKE_MOTOR1_ID);
-        this.talonSRX2 = new WPI_TalonSRX(Constants.INTAKE_MOTOR2_ID);
+        this.talonSRX1 = new PWMTalonSRX(Constants.INTAKE_MOTOR1_ID);
+        this.talonSRX2 = new PWMTalonSRX(Constants.INTAKE_MOTOR2_ID);
     }
 
     /**
