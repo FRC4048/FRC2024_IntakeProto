@@ -42,6 +42,7 @@ public class ToggleReverseIntakeStates extends CommandBase {
     @Override
     public boolean isFinished() {
         if (timer.advanceIfElapsed(10)) {
+            intake.stop();
             return true;
         } else {
             return false;
