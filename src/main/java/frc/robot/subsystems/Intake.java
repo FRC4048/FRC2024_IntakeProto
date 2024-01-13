@@ -21,8 +21,8 @@ public class Intake extends SubsystemBase {
     public Intake(){
         this.CANSparkMax1 = new CANSparkMax(Constants.INTAKE_MOTOR1_ID, CANSparkLowLevel.MotorType.kBrushless);
         this.CANSparkMax2 = new CANSparkMax(Constants.INTAKE_MOTOR2_ID, CANSparkLowLevel.MotorType.kBrushless);
-        //this.CANSparkMax3 = new CANSparkMax(Constants.INTAKE_MOTOR1_ID, CANSparkLowLevel.MotorType.kBrushless);
-        //this.CANSparkMax4 = new CANSparkMax(Constants.INTAKE_MOTOR2_ID, CANSparkLowLevel.MotorType.kBrushless);
+        //this.CANSparkMax3 = new CANSparkMax(Constants.INTAKE_MOTOR3_ID, CANSparkLowLevel.MotorType.kBrushless);
+        //this.CANSparkMax4 = new CANSparkMax(Constants.INTAKE_MOTOR4_ID, CANSparkLowLevel.MotorType.kBrushless);
         SmartDashboard.putNumber("Intake Motor Speed 1", 0.5);
         SmartDashboard.putNumber("Intake Motor Speed 2", 0.5);
         //SmartDashboard.putNumber("Intake Motor Speed 3", 0.5);
