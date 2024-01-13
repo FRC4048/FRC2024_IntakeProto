@@ -62,7 +62,7 @@ public class Intake extends SubsystemBase {
         //intakeSpeed4 = SmartDashboard.getNumber("Intake Motor Speed 4", 0.5);
 
         intakeSpeed1 = forward ? intakeSpeed1 : intakeSpeed1 * -1;
-        intakeSpeed2 = forward ? intakeSpeed2 : intakeSpeed2 * -1;
+        intakeSpeed2 = !forward ? intakeSpeed2 : intakeSpeed2 * -1;
         //intakeSpeed3 = !forward ? intakeSpeed3 : intakeSpeed3 * -1;
         //intakeSpeed4 = !forward ? intakeSpeed4 : intakeSpeed4 * -1;
 

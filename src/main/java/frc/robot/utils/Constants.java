@@ -19,6 +19,6 @@ public final class Constants
     public static final int CONTROLLER_ID = 1;
     public static final int INTAKE_MOTOR1_ID = 41;
     public static final int INTAKE_MOTOR2_ID = 61;
-    public static final int INTAKE_MOTOR3_ID = 0;
-    public static final int INTAKE_MOTOR4_ID = 0;
+    public static final int INTAKE_MOTOR3_ID = -1;
+    public static final int INTAKE_MOTOR4_ID = -1;
 }
