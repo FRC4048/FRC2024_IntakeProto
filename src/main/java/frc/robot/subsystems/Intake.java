@@ -1,33 +1,44 @@
 package frc.robot.subsystems;
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.revrobotics.CANSparkLowLevel;
+import com.revrobotics.CANSparkMax;
+
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.utils.Constants;
-import frc.robot.utils.IntakeState;
+import frc.robot.utils.IntakeState; 
 
 public class Intake extends SubsystemBase {
-    private final WPI_TalonSRX talonSRX1;
-    private final WPI_TalonSRX talonSRX2;
+    private final CANSparkMax CANSparkMax1;
+    private final CANSparkMax CANSparkMax2;
+    //private final CANSparkMax CANSparkMax3;
+    //private final CANSparkMax CANSparkMax4;
+    private double intakeSpeed = 0.75;
     private IntakeState currentState = IntakeState.STOPPED;
 
     public Intake(){
-        this.talonSRX1 = new WPI_TalonSRX(Constants.INTAKE_MOTOR1_ID);
-        this.talonSRX2 = new WPI_TalonSRX(Constants.INTAKE_MOTOR2_ID);
+        this.CANSparkMax1 = new CANSparkMax(Constants.INTAKE_MOTOR1_ID, CANSparkLowLevel.MotorType.kBrushless);
+        this.CANSparkMax2 = new CANSparkMax(Constants.INTAKE_MOTOR2_ID, CANSparkLowLevel.MotorType.kBrushless);
+        //this.CANSparkMax3 = new CANSparkMax(Constants.INTAKE_MOTOR1_ID, CANSparkLowLevel.MotorType.kBrushless);
+        //this.CANSparkMax4 = new CANSparkMax(Constants.INTAKE_MOTOR2_ID, CANSparkLowLevel.MotorType.kBrushless);
+        SmartDashboard.putNumber("Intake Motor Speeds", 0.75);
     }
-
     /**
      * sets the speed of both motors to the IntakeSpeed defined in the {@link Constants} file
      * @param forward if true the motors will spin in the intake directions,
      *                if false the motors will spin in the outtake direction
      */
     public void spin(boolean forward){
-        double speed = forward ? Constants.INTAKE_SPEED : Constants.INTAKE_SPEED*-1;
-        talonSRX1.set(speed);
-        talonSRX2.set(-speed);
+        intakeSpeed = SmartDashboard.getNumber("Intake Motor Speeds", 0.75);
+        double speed = forward ? intakeSpeed : intakeSpeed*-1;
+        CANSparkMax1.set(speed);
+        CANSparkMax2.set(speed);
+        //CANSparkMax3.set(-speed);
+        //CANSparkMax4.set(-speed);
         currentState = forward ? IntakeState.FORWARD: IntakeState.BACKWARD;
     }
     public void stop(){
-        talonSRX1.set(0);
-        talonSRX2.set(0);
+        CANSparkMax1.set(0);
+        CANSparkMax2.set(0);
         currentState = IntakeState.STOPPED;
     }
 
