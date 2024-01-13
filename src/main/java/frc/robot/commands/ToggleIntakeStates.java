@@ -21,11 +21,6 @@ public class ToggleIntakeStates extends Command {
     public void initialize() {
         timer.reset();
         timer.start();
-    }
-
-    @Override
-    public void execute() {
-        
         switch (intake.getState()){
             case FORWARD:
                 intake.spin(false);
@@ -37,6 +32,10 @@ public class ToggleIntakeStates extends Command {
                 intake.spin(true);
                 break;
         }
+    }
+
+    @Override
+    public void execute() {
     }
 
     @Override
