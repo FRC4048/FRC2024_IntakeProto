@@ -11,13 +11,16 @@ import frc.robot.commands.ToggleIntakeStates;
 import frc.robot.commands.ToggleReverseIntakeStates;
 import frc.robot.commands.ToggleStopIntake;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Limelight;
 import frc.robot.utils.Constants;
 
 public class RobotContainer {
     private final CommandXboxController controller = new CommandXboxController(Constants.CONTROLLER_ID);
     private final Intake intake;
+    private final Limelight limelight;
     public RobotContainer() {
         this.intake = new Intake();
+        this.limelight = new Limelight();
         configureBindings();
     }
     private void configureBindings() {
