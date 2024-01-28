@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.Timer;
  * ^&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp| <br>
  * |_____________________________| <br>
  */
-public class ToggleIntakeStates extends Command {
+public class ToggleReverseIntakeStates extends Command {
     private final Intake intake;
-    public ToggleIntakeStates(Intake intake){
+    public ToggleReverseIntakeStates(Intake intake){
         this.intake = intake;
         addRequirements(intake);
     }
@@ -23,13 +23,13 @@ public class ToggleIntakeStates extends Command {
         timer.start();
         switch (intake.getState()){
             case FORWARD:
-                intake.spin(false);
+                intake.spin(true);
                 break;
             case BACKWARD:
                 intake.stop();
                 break;
             case STOPPED:
-                intake.spin(true);
+                intake.spin(false);
                 break;
         }
     }
