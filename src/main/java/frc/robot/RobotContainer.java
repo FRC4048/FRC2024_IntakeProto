@@ -8,18 +8,25 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.ToggleIntakeStates;
+import frc.robot.commands.ToggleReverseIntakeStates;
+import frc.robot.commands.ToggleStopIntake;
 import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Limelight;
 import frc.robot.utils.Constants;
 
 public class RobotContainer {
     private final CommandXboxController controller = new CommandXboxController(Constants.CONTROLLER_ID);
     private final Intake intake;
+    private final Limelight limelight;
     public RobotContainer() {
         this.intake = new Intake();
+        this.limelight = new Limelight();
         configureBindings();
     }
     private void configureBindings() {
         controller.button(XboxController.Button.kA.value).onTrue(new ToggleIntakeStates(intake));
+        controller.button(XboxController.Button.kB.value).onTrue(new ToggleReverseIntakeStates(intake));
+        controller.button(XboxController.Button.kY.value).onTrue(new ToggleStopIntake(intake));
     }
 
 }
